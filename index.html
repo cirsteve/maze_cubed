@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mazeApp">
+<head>
+    <meta charset"UTF-8">
+    <link href="css/base.css" rel="stylesheet">
+    <script type="text/javascript" src="libs/jquery/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="libs/angular/angular.js"></script>
+    <script type="text/javascript" src="js/maze.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+    <script type="text/javascript" src="js/ng/services.js"></script>
+    <script type="text/javascript" src="js/ng/controllers.js"></script>
+</head>
+<body ng-controller="MazeRenderer" ng-keydown="keydown($event)">
+
+    <div id="sidebar">
+    <h1>Mazels!</h1>
+        <div class="config">
+        x<input maxlength="2" ng-model="mazeConfig.x"></input>
+        y<input maxlength="2" ng-model="mazeConfig.y"></input>
+        z<input maxlength="2" ng-model="mazeConfig.z"></input>
+        </div>
+        <button id="create-maze" ng-click="createMaze()">Create Maze</button>
+        Mazes - {{ mazes.length }}
+        <ul>
+            <li ng-repeat="maze in mazes" ng-click="renderMaze(maze)">
+                {{ maze.created }} <br />
+                {{ maze.x }} x {{ maze.y }} x {{ maze.z }}
+            </li> 
+        </ul>
+        <div class="controls">
+            <button type="button" id="launch-maze">Get Mazey!</button><input id="level-set"></input><br />
+            Level <span id="level-target" ng-model="currentMaze.node[2]"></span>
+        </div>
+    </div>
+    <canvas id="maze-canvas" height="400" width="400"></canvas>
+</body>
+</html>
