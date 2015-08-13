@@ -185,7 +185,7 @@ MazeRenderer.prototype.drawWalls = function () {
 
     $('#level-target').html(this.level);
 
-    this.drawBorder();
+    //this.drawBorder();
     walls = [];
     walls = walls.concat.apply(walls, wallArrays[0]);
 
@@ -230,6 +230,7 @@ MazeRenderer.prototype.drawWalls = function () {
     }
     */
     console.log('wall arrays ', wallArrays);
+    console.log('all walls ', this.maze.walls);
 
     return this;
     
